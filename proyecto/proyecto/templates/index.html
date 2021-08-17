@@ -1,0 +1,47 @@
+{% load static %}
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-success bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">barra de inicio</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">inicio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">graficos</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">datos</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        <div class="container py-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>lista de datos</h2>
+                    <div class="table-responsive">
+                            {% for dato in datos %}
+                            {{ dato|safe }}
+                            {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="module">
+            import { Toast } from 'bootstrap.esm.min.js'
+          
+            Array.from(document.querySelectorAll('.toast'))
+              .forEach(toastNode => new Toast(toastNode))
+          </script>
+    </body>
+</html>
